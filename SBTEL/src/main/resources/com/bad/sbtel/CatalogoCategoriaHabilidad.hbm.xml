@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.CatalogoCategoriaHabilidad" table="CATALOGO_CATEGORIA_HABILIDAD" schema="SBTEL" optimistic-lock="version">
+        <id name="pkCategoriaHabilidad" type="big_decimal">
+            <column name="PK_CATEGORIA_HABILIDAD" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreCategoriaHabilidad" type="string">
+            <column name="NOMBRE_CATEGORIA_HABILIDAD" length="50" not-null="true" />
+        </property>
+        <set name="catalogoHabilidads" table="CATALOGO_HABILIDAD" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_CATEGORIA_HABILIDAD" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.CatalogoHabilidad" />
+        </set>
+    </class>
+</hibernate-mapping>

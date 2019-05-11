@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.ConocimientoAcademicos" table="CONOCIMIENTO_ACADEMICOS" schema="SBTEL" optimistic-lock="version">
+        <id name="pkConocimientoAcademico" type="big_decimal">
+            <column name="PK_CONOCIMIENTO_ACADEMICO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="catalogoGradoAcademico" class="com.bad.sbtel.CatalogoGradoAcademico" fetch="select">
+            <column name="PK_GRADO_ACADEMICO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="oferta" class="com.bad.sbtel.Oferta" fetch="select">
+            <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

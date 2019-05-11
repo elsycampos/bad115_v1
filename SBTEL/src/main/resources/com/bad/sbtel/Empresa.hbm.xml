@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.Empresa" table="EMPRESA" schema="SBTEL" optimistic-lock="version">
+        <id name="pkEmpresa" type="big_decimal">
+            <column name="PK_EMPRESA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="catalogoSectorEmpresa" class="com.bad.sbtel.CatalogoSectorEmpresa" fetch="select">
+            <column name="PK_SECTOR" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catalogoTipoEmpresa" class="com.bad.sbtel.CatalogoTipoEmpresa" fetch="select">
+            <column name="PK_TIPO_EMPRESA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="municipio" class="com.bad.sbtel.Municipio" fetch="select">
+            <column name="PK_MUNICIPIO" precision="22" scale="0" />
+        </many-to-one>
+        <property name="nomEmpresa" type="string">
+            <column name="NOM_EMPRESA" length="100" not-null="true" />
+        </property>
+        <property name="nitEmpresa" type="long">
+            <column name="NIT_EMPRESA" precision="14" scale="0" not-null="true" />
+        </property>
+        <property name="direccionEmpresa" type="string">
+            <column name="DIRECCION_EMPRESA" length="250" not-null="true" />
+        </property>
+        <property name="razonSocial" type="string">
+            <column name="RAZON_SOCIAL" length="250" not-null="true" />
+        </property>
+        <property name="numeroTrabajadores" type="big_decimal">
+            <column name="NUMERO_TRABAJADORES" precision="22" scale="0" />
+        </property>
+        <property name="descripcionEmpresa" type="string">
+            <column name="DESCRIPCION_EMPRESA" length="250" not-null="true" />
+        </property>
+        <property name="paginaWeb" type="string">
+            <column name="PAGINA_WEB" length="100" />
+        </property>
+        <property name="logoEmpresa" type="blob">
+            <column name="LOGO_EMPRESA" />
+        </property>
+        <property name="nombreContactoEmpresa" type="string">
+            <column name="NOMBRE_CONTACTO_EMPRESA" length="100" not-null="true" />
+        </property>
+        <property name="cargoContacto" type="string">
+            <column name="CARGO_CONTACTO" length="100" />
+        </property>
+        <property name="telefonoContacto" type="big_decimal">
+            <column name="TELEFONO_CONTACTO" precision="25" scale="0" not-null="true" />
+        </property>
+        <set name="ofertas" table="OFERTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_EMPRESA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.Oferta" />
+        </set>
+        <set name="perfils" table="PERFIL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_EMPRESA" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.bad.sbtel.Perfil" />
+        </set>
+    </class>
+</hibernate-mapping>

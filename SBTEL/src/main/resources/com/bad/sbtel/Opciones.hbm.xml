@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.Opciones" table="OPCIONES" schema="SBTEL" optimistic-lock="version">
+        <id name="pkOpciones" type="big_decimal">
+            <column name="PK_OPCIONES" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="itemPrueba" class="com.bad.sbtel.ItemPrueba" fetch="select">
+            <column name="PK_ITEM" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="opcion" type="string">
+            <column name="OPCION" length="250" not-null="true" />
+        </property>
+        <property name="puntajeOpcion" type="big_decimal">
+            <column name="PUNTAJE_OPCION" precision="2" not-null="true" />
+        </property>
+        <property name="imagenOpcion" type="blob">
+            <column name="IMAGEN_OPCION" />
+        </property>
+    </class>
+</hibernate-mapping>

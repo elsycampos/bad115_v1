@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.CatalogoHabilidad" table="CATALOGO_HABILIDAD" schema="SBTEL" optimistic-lock="version">
+        <id name="pkHabilidad" type="big_decimal">
+            <column name="PK_HABILIDAD" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="catalogoCategoriaHabilidad" class="com.bad.sbtel.CatalogoCategoriaHabilidad" fetch="select">
+            <column name="PK_CATEGORIA_HABILIDAD" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreHabilidad" type="string">
+            <column name="NOMBRE_HABILIDAD" length="100" not-null="true" />
+        </property>
+        <set name="habilidadOfertas" table="HABILIDAD_OFERTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_HABILIDAD" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.HabilidadOferta" />
+        </set>
+        <set name="habilidadesCvs" table="HABILIDADES_CV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_HABILIDAD" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.HabilidadesCv" />
+        </set>
+    </class>
+</hibernate-mapping>

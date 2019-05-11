@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.ExperienciaLaboral" table="EXPERIENCIA_LABORAL" schema="SBTEL" optimistic-lock="version">
+        <id name="pkExperienciaLaboral" type="big_decimal">
+            <column name="PK_EXPERIENCIA_LABORAL" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cv" class="com.bad.sbtel.Cv" fetch="select">
+            <column name="PK_CV" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catalogoSectorEmpresa" class="com.bad.sbtel.CatalogoSectorEmpresa" fetch="select">
+            <column name="PK_SECTOR" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreExpEmpresa" type="string">
+            <column name="NOMBRE_EXP_EMPRESA" length="150" not-null="true" />
+        </property>
+        <property name="cargo" type="string">
+            <column name="CARGO" length="100" not-null="true" />
+        </property>
+        <property name="periodoInicio" type="date">
+            <column name="PERIODO_INICIO" length="7" not-null="true" />
+        </property>
+        <property name="periodoFin" type="date">
+            <column name="PERIODO_FIN" length="7" not-null="true" />
+        </property>
+        <property name="descripcionFunciones" type="string">
+            <column name="DESCRIPCION_FUNCIONES" length="1000" not-null="true" />
+        </property>
+        <property name="nombreContactoExp" type="string">
+            <column name="NOMBRE_CONTACTO_EXP" length="100" />
+        </property>
+        <property name="telefonoContactoExp" type="java.lang.Long">
+            <column name="TELEFONO_CONTACTO_EXP" precision="14" scale="0" />
+        </property>
+        <property name="correoContactoExp" type="string">
+            <column name="CORREO_CONTACTO_EXP" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

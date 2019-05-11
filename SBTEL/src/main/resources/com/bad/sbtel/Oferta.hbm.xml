@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.Oferta" table="OFERTA" schema="SBTEL" optimistic-lock="version">
+        <id name="pkOferta" type="big_decimal">
+            <column name="PK_OFERTA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empresa" class="com.bad.sbtel.Empresa" fetch="select">
+            <column name="PK_EMPRESA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catalogoPuesto" class="com.bad.sbtel.CatalogoPuesto" fetch="select">
+            <column name="PK_CATALOGO_PUESTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="municipio" class="com.bad.sbtel.Municipio" fetch="select">
+            <column name="PK_MUNICIPIO" precision="22" scale="0" />
+        </many-to-one>
+        <property name="descripcionOferta" type="string">
+            <column name="DESCRIPCION_OFERTA" length="250" not-null="true" />
+        </property>
+        <property name="salarioMinOferta" type="java.lang.Integer">
+            <column name="SALARIO_MIN_OFERTA" precision="6" scale="0" />
+        </property>
+        <property name="salarioMaxOferta" type="java.lang.Integer">
+            <column name="SALARIO_MAX_OFERTA" precision="6" scale="0" />
+        </property>
+        <property name="fechaInicioOferta" type="date">
+            <column name="FECHA_INICIO_OFERTA" length="7" not-null="true" />
+        </property>
+        <property name="fechaFinOferta" type="date">
+            <column name="FECHA_FIN_OFERTA" length="7" not-null="true" />
+        </property>
+        <set name="habilidadLinguisicaOfertas" table="HABILIDAD_LINGUISICA_OFERTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.HabilidadLinguisicaOferta" />
+        </set>
+        <set name="habilidadOfertas" table="HABILIDAD_OFERTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.HabilidadOferta" />
+        </set>
+        <set name="licenciaOfertas" table="LICENCIA_OFERTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.LicenciaOferta" />
+        </set>
+        <set name="aptitudOfertas" table="APTITUD_OFERTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.AptitudOferta" />
+        </set>
+        <set name="conocimientoAcademicoses" table="CONOCIMIENTO_ACADEMICOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.ConocimientoAcademicos" />
+        </set>
+        <set name="postulacions" table="POSTULACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.Postulacion" />
+        </set>
+        <set name="pruebas" table="PRUEBA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_OFERTA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.Prueba" />
+        </set>
+    </class>
+</hibernate-mapping>

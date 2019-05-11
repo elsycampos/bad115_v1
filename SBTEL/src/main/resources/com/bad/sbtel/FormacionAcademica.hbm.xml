@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.FormacionAcademica" table="FORMACION_ACADEMICA" schema="SBTEL" optimistic-lock="version">
+        <id name="pkFormacionAcademica" type="big_decimal">
+            <column name="PK_FORMACION_ACADEMICA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cv" class="com.bad.sbtel.Cv" fetch="select">
+            <column name="PK_CV" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catalogoGradoAcademico" class="com.bad.sbtel.CatalogoGradoAcademico" fetch="select">
+            <column name="PK_GRADO_ACADEMICO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreInstitucion" type="string">
+            <column name="NOMBRE_INSTITUCION" length="100" not-null="true" />
+        </property>
+        <property name="anoInicio" type="date">
+            <column name="ANO_INICIO" length="7" not-null="true" />
+        </property>
+        <property name="anoFin" type="date">
+            <column name="ANO_FIN" length="7" />
+        </property>
+        <property name="nombreTitulo" type="string">
+            <column name="NOMBRE_TITULO" length="100" not-null="true" />
+        </property>
+        <property name="enCurso" type="big_decimal">
+            <column name="EN_CURSO" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username">SBTEL</property>
+    <property name="hibernate.connection.password">SBTEL</property>
+    <mapping resource="com/bad/sbtel/CatalogoAptitud.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/HabilidadLinguisticaCv.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Menu.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/AptitudCv.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/HabilidadLinguisicaOferta.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/ExperienciaLaboral.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Escrito.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoLicencia.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoIdioma.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Pais.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CursoCapacitacion.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Municipio.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoGradoAcademico.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Resultado.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoTipoEmpresa.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/ConocimientoAcademicos.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Evento.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/ItemPrueba.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Departamento.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/LicenciaCandidato.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Postulacion.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Cv.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoCategoria.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Perfil.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/RolSubmenu.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoHabilidad.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/HabilidadOferta.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Prueba.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoSectorEmpresa.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Logro.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Oferta.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Opciones.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Submenu.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/LicenciaOferta.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoPonderacion.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoGenero.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/AptitudOferta.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/FormacionAcademica.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/HabilidadesCv.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoCategoriaHabilidad.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoTipoPrueba.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Referencia.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Empresa.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoEscrito.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoTipoReferencia.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/CatalogoPuesto.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Candidato.hbm.xml"/>
+    <mapping resource="com/bad/sbtel/Rol.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

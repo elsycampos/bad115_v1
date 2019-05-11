@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.ItemPrueba" table="ITEM_PRUEBA" schema="SBTEL" optimistic-lock="version">
+        <id name="pkItem" type="big_decimal">
+            <column name="PK_ITEM" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="prueba" class="com.bad.sbtel.Prueba" fetch="select">
+            <column name="PK_PRUEBA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="pregunta" type="string">
+            <column name="PREGUNTA" length="450" not-null="true" />
+        </property>
+        <set name="opcioneses" table="OPCIONES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_ITEM" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.Opciones" />
+        </set>
+    </class>
+</hibernate-mapping>

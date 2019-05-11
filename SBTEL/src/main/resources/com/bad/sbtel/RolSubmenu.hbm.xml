@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.RolSubmenu" table="ROL_SUBMENU" schema="SBTEL" optimistic-lock="version">
+        <id name="idRolSubmenu" type="big_decimal">
+            <column name="ID_ROL_SUBMENU" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rol" class="com.bad.sbtel.Rol" fetch="select">
+            <column name="PK_ROL" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="submenu" class="com.bad.sbtel.Submenu" fetch="select">
+            <column name="PK_SUBMENU" precision="22" scale="0" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.CursoCapacitacion" table="CURSO_CAPACITACION" schema="SBTEL" optimistic-lock="version">
+        <id name="pkCursoCapacitacion" type="big_decimal">
+            <column name="PK_CURSO_CAPACITACION" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cv" class="com.bad.sbtel.Cv" fetch="select">
+            <column name="PK_CV" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreCursoCapacitacion" type="string">
+            <column name="NOMBRE_CURSO_CAPACITACION" length="200" not-null="true" />
+        </property>
+        <property name="fechaCurso" type="date">
+            <column name="FECHA_CURSO" length="7" not-null="true" />
+        </property>
+        <property name="nombreInstitutoPonente" type="string">
+            <column name="NOMBRE_INSTITUTO_PONENTE" length="250" not-null="true" />
+        </property>
+        <property name="duracion" type="string">
+            <column name="DURACION" length="100" />
+        </property>
+        <property name="lugarCapacitacion" type="string">
+            <column name="LUGAR_CAPACITACION" length="250" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

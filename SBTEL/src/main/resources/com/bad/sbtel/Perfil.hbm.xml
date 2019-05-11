@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.Perfil" table="PERFIL" schema="SBTEL" optimistic-lock="version">
+        <id name="pkUsuario" type="big_decimal">
+            <column name="PK_USUARIO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empresa" class="com.bad.sbtel.Empresa" fetch="select">
+            <column name="PK_EMPRESA" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="candidato" class="com.bad.sbtel.Candidato" fetch="select">
+            <column name="PK_CANDIDATO" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="rol" class="com.bad.sbtel.Rol" fetch="select">
+            <column name="PK_ROL" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="USUARIO" length="50" not-null="true" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="CONTRASENA" length="50" not-null="true" />
+        </property>
+        <property name="correoElectronico" type="string">
+            <column name="CORREO_ELECTRONICO" length="100" not-null="true" />
+        </property>
+        <property name="tipoPerfil" type="big_decimal">
+            <column name="TIPO_PERFIL" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

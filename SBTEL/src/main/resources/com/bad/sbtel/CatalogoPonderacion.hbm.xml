@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.CatalogoPonderacion" table="CATALOGO_PONDERACION" schema="SBTEL" optimistic-lock="version">
+        <id name="pkCatalogoPonderacion" type="big_decimal">
+            <column name="PK_CATALOGO_PONDERACION" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="etiquetaPonderacion" type="string">
+            <column name="ETIQUETA_PONDERACION" length="25" not-null="true" />
+        </property>
+        <property name="descripcionEtiqueta" type="string">
+            <column name="DESCRIPCION_ETIQUETA" length="100" not-null="true" />
+        </property>
+        <set name="habilidadLinguisicaOfertas" table="HABILIDAD_LINGUISICA_OFERTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_CATALOGO_PONDERACION" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.HabilidadLinguisicaOferta" />
+        </set>
+        <set name="habilidadLinguisticaCvs" table="HABILIDAD_LINGUISTICA_CV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_CATALOGO_PONDERACION" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.bad.sbtel.HabilidadLinguisticaCv" />
+        </set>
+    </class>
+</hibernate-mapping>

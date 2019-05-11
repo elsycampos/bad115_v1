@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.Departamento" table="DEPARTAMENTO" schema="SBTEL" optimistic-lock="version">
+        <id name="pkDepartamento" type="big_decimal">
+            <column name="PK_DEPARTAMENTO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pais" class="com.bad.sbtel.Pais" fetch="select">
+            <column name="PK_PAIS" precision="22" scale="0" />
+        </many-to-one>
+        <property name="nombreDepartamento" type="string">
+            <column name="NOMBRE_DEPARTAMENTO" length="50" not-null="true" />
+        </property>
+        <set name="municipios" table="MUNICIPIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PK_DEPARTAMENTO" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.bad.sbtel.Municipio" />
+        </set>
+    </class>
+</hibernate-mapping>

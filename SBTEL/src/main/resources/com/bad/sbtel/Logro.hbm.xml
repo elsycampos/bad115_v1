@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.Logro" table="LOGRO" schema="SBTEL" optimistic-lock="version">
+        <id name="pkLogro" type="big_decimal">
+            <column name="PK_LOGRO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cv" class="com.bad.sbtel.Cv" fetch="select">
+            <column name="PK_CV" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreLogro" type="string">
+            <column name="NOMBRE_LOGRO" length="250" not-null="true" />
+        </property>
+        <property name="fechaLogro" type="date">
+            <column name="FECHA_LOGRO" length="7" not-null="true" />
+        </property>
+        <property name="descripcionLogro" type="string">
+            <column name="DESCRIPCION_LOGRO" length="450" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

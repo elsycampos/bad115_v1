@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-11-2019 11:29:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bad.sbtel.Referencia" table="REFERENCIA" schema="SBTEL" optimistic-lock="version">
+        <id name="pkReferencia" type="big_decimal">
+            <column name="PK_REFERENCIA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cv" class="com.bad.sbtel.Cv" fetch="select">
+            <column name="PK_CV" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catalogoTipoReferencia" class="com.bad.sbtel.CatalogoTipoReferencia" fetch="select">
+            <column name="PK_TIPO_REFERENCIA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreReferencia" type="string">
+            <column name="NOMBRE_REFERENCIA" length="100" not-null="true" />
+        </property>
+        <property name="telefonoReferencia" type="long">
+            <column name="TELEFONO_REFERENCIA" precision="14" scale="0" not-null="true" />
+        </property>
+        <property name="empresaReferencia" type="string">
+            <column name="EMPRESA_REFERENCIA" length="250" />
+        </property>
+        <property name="recomendacionPdf" type="blob">
+            <column name="RECOMENDACION_PDF" />
+        </property>
+    </class>
+</hibernate-mapping>
